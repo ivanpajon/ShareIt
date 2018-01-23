@@ -100,7 +100,7 @@
         app:layout_constraintVertical_bias="0.861" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/switchrecordarme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="305dp"
