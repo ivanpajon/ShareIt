@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ShareIt</string>
+    <string name="usuario">Usuario o email</string>
+    <string name="contraseña">Contraseña</string>
+    <string name="acceder">Acceder</string>
+    <string name="recordarcontraseña">Recordar contraseña</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="recordarme">¿Recordarme?</string>
 </resources>
