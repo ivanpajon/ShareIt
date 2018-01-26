@@ -10,7 +10,7 @@
     <ImageView
         android:id="@+id/logo_registro"
         style="@style/logo"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="53dp"
         android:scaleType="fitCenter"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
