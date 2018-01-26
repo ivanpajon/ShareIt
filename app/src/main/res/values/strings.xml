@@ -5,4 +5,7 @@
     <string name="acceder">Acceder</string>
     <string name="recordarcontraseña">o inicia sesion con</string>
     <string name="registrarse">Registrarse</string>
+    <string name="registro_con_google">Sign in with google</string>
+    <string name="registro_con_facebook">Sign in with facebook</string>
+    <string name="registro_con_email">Sign in with email</string>
 </resources>
