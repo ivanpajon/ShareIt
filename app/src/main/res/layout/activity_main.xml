@@ -8,7 +8,7 @@
     tools:context="com.shareit.shareit.MainActivity">
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/logo_registro"
         style="@style/logo"
         android:scaleType="fitCenter"
         android:src="@drawable/logo"
@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/logo_registro" />
 
     <EditText
         android:id="@+id/password"
