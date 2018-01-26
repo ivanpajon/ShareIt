@@ -5,11 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.shareit.shareit.MainActivity">
+    tools:context="com.shareit.shareit.SignInEmail">
 
     <ImageView
         android:id="@+id/logo"
-        style="@style/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="64dp"
         android:scaleType="fitCenter"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,44 +20,49 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/usuario"
-        style="@style/usuario"
+        android:id="@+id/etEmail"
+        android:layout_width="@dimen/widthField"
+        android:layout_height="@dimen/heightField"
         android:layout_marginTop="8dp"
-        android:hint="@string/usuario"
+        android:hint="@string/signinemail_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" />
 
     <EditText
-        android:id="@+id/password"
-        style="@style/contraseña"
+        android:id="@+id/etPassword"
+        android:layout_width="@dimen/widthField"
+        android:layout_height="@dimen/heightField"
         android:layout_marginTop="8dp"
-        android:hint="@string/contraseña"
+        android:hint="@string/signinemail_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuario" />
+        app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
     <Button
-        android:id="@+id/acceder"
-        style="@style/acceder"
+        android:id="@+id/btnAcceder"
+        android:layout_width="@dimen/widthField"
+        android:layout_height="@dimen/heightField"
         android:layout_marginTop="8dp"
         android:onClick="Acceder"
-        android:text="@string/acceder"
+        android:text="@string/signin_acceder"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
 
-    <TextView
-        android:id="@+id/registrarse"
-        style="@style/recordar_contraseña"
-        android:layout_height="17dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/registrarse"
+    <Button
+        android:id="@+id/btnRegistrarse"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="@dimen/widthField"
+        android:layout_height="@dimen/heightField"
+        android:text="@string/signin_registrarse"
+        android:textColor="@color/colorLink"
+        android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/acceder" />
+        app:layout_constraintTop_toBottomOf="@+id/btnAcceder" />
 
 </android.support.constraint.ConstraintLayout>

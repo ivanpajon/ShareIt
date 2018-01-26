@@ -1,10 +1,11 @@
 <resources>
     <string name="app_name">ShareIt</string>
-    <string name="usuario">Usuario o email</string>
-    <string name="contraseña">Contraseña</string>
-    <string name="acceder">Acceder</string>
+    <string name="signinemail_email">Email</string>
+    <string name="signinemail_password">Contraseña</string>
+    <string name="signin_acceder">Acceder</string>
+    <string name="signin_registrarse">¿No tienes cuenta aún? ¡Regístrate!</string>
+
     <string name="recordarcontraseña">o inicia sesion con</string>
-    <string name="registrarse">Registrarse</string>
     <string name="registro_con_google">Sign in with google</string>
     <string name="registro_con_facebook">Sign in with facebook</string>
     <string name="registro_con_email">Sign in with email</string>
