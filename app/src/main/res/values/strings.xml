@@ -15,4 +15,14 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="perfil">Perfil</string>
+    <string name="comunidades">Comunidades</string>
+    <string name="productos">Productos/Servicios</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="acercaDe">Acerca de</string>
+    <string name="salir">Salir</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
