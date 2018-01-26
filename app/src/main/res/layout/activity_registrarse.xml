@@ -9,15 +9,15 @@
 
     <ImageView
         android:id="@+id/logo_registro"
-        style="@style/logo"
-        android:layout_marginTop="53dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="32dp"
         android:scaleType="fitCenter"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/registrofacebook"
@@ -31,7 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registrogoogle" />
-
 
     <Button
         android:id="@+id/registrogoogle"
