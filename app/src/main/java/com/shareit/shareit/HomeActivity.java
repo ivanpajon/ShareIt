@@ -18,12 +18,16 @@ import android.view.MenuItem;
 import com.shareit.shareit.fragment.AcercaDeFragment;
 import com.shareit.shareit.fragment.AjustesFragment;
 import com.shareit.shareit.fragment.ComunidadesFragment;
+import com.shareit.shareit.fragment.ContentFragment;
+import com.shareit.shareit.fragment.DemandasFragment;
+import com.shareit.shareit.fragment.OfertasFragment;
 import com.shareit.shareit.fragment.PerfilFragment;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,PerfilFragment.OnFragmentInteractionListener,
         AjustesFragment.OnFragmentInteractionListener,AcercaDeFragment.OnFragmentInteractionListener,
-        ComunidadesFragment.OnFragmentInteractionListener {
+        ComunidadesFragment.OnFragmentInteractionListener,ContentFragment.OnFragmentInteractionListener,
+        OfertasFragment.OnFragmentInteractionListener,DemandasFragment.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,16 +77,12 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_buscar) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -104,6 +104,7 @@ public class HomeActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_productos) {
             fragmentSeleccionado=true;
+            fragment = new ContentFragment();
 
         } else if (id == R.id.nav_ajustes) {
             fragmentSeleccionado=true;
@@ -114,7 +115,7 @@ public class HomeActivity extends AppCompatActivity
             fragment = new AcercaDeFragment();
 
         } else if (id == R.id.nav_salir) {
-
+                finish();
         }
         if (fragmentSeleccionado){
             getSupportFragmentManager().beginTransaction().replace(R.id.content,fragment).commit();
