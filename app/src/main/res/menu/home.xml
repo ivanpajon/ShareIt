@@ -5,6 +5,6 @@
         android:id="@+id/action_buscar"
         android:orderInCategory="100"
         android:title=""
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/buscar"
         app:showAsAction="always" />
 </menu>

@@ -14,7 +14,7 @@ import java.util.List;
 public class AdaptadorFragment extends FragmentPagerAdapter {
 
     private final List<Fragment> listaFragments = new ArrayList<>();
-    private final List<String> listaTitutlos = new ArrayList<>();
+    private final List<String> listaTitulos = new ArrayList<>();
 
     public AdaptadorFragment (FragmentManager fm){
         super(fm);
@@ -22,7 +22,7 @@ public class AdaptadorFragment extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return listaTitutlos.get(position);
+        return listaTitulos.get(position);
     }
 
     @Override
@@ -37,6 +37,6 @@ public class AdaptadorFragment extends FragmentPagerAdapter {
 
     public void addFragment(Fragment f,String titulo){
         listaFragments.add(f);
-        listaTitutlos.add(titulo);
+        listaTitulos.add(titulo);
     }
 }
