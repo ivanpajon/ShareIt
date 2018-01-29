@@ -21,7 +21,7 @@
     <string name="productos">Productos/Servicios</string>
     <string name="ajustes">Ajustes</string>
     <string name="acercaDe">Acerca de</string>
-    <string name="salir">Salir</string>
+    <string name="salir">Cerrar sesión</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
