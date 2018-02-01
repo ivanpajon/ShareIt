@@ -6,6 +6,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,6 +21,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.shareit.shareit.fragment.AcercaDeFragment;
+import com.shareit.shareit.fragment.AddFragment;
 import com.shareit.shareit.fragment.AjustesFragment;
 import com.shareit.shareit.fragment.ComunidadesFragment;
 import com.shareit.shareit.fragment.ContentFragment;
@@ -30,21 +33,29 @@ public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,PerfilFragment.OnFragmentInteractionListener,
         AjustesFragment.OnFragmentInteractionListener,AcercaDeFragment.OnFragmentInteractionListener,
         ComunidadesFragment.OnFragmentInteractionListener,ContentFragment.OnFragmentInteractionListener,
-        OfertasFragment.OnFragmentInteractionListener,DemandasFragment.OnFragmentInteractionListener{
+        OfertasFragment.OnFragmentInteractionListener,DemandasFragment.OnFragmentInteractionListener,
+        AddFragment.OnFragmentInteractionListener{
+
+    //RecyclerView recyclerdemandas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //recyclerdemandas = findViewById(R.id.recyclerDemandas);
+        //recyclerdemandas.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Fragment f = new AddFragment();
+                getSupportFragmentManager().beginTransaction().replace(R.id.content,f).commit();
             }
         });
 
@@ -63,7 +74,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -84,7 +95,8 @@ public class HomeActivity extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.action_buscar) {
+        if (id == R.id.search) {
+
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -125,7 +137,7 @@ public class HomeActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.content,fragment).commit();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
