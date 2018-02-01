@@ -11,11 +11,11 @@
             android:title="@string/perfil" />
         <item
             android:id="@+id/nav_comunidades"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/comunidades"
             android:title="@string/comunidades" />
         <item
             android:id="@+id/nav_productos"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/productos"
             android:title="@string/productos" />
     </group>
 
@@ -24,15 +24,15 @@
             android:id="@+id/idBottom">
             <item
                 android:id="@+id/nav_ajustes"
-                android:icon="@drawable/ic_menu_manage"
+                android:icon="@drawable/ajustes"
                 android:title="@string/ajustes" />
             <item
                 android:id="@+id/nav_acerdaDe"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/info"
                 android:title="@string/acercaDe" />
             <item
                 android:id="@+id/nav_salir"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/salir"
                 android:title="@string/salir" />
         </group>
 
