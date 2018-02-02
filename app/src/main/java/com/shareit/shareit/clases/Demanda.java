@@ -6,13 +6,13 @@ import android.widget.ImageView;
  * Created by mario on 01/02/2018.
  */
 
-public class Demandas {
+public class Demanda {
 
     private String nombreDemandas;
     private String descripcionDemandas;
     private ImageView image;
 
-    public Demandas(String nombreDemandas, String descripcionDemandas, ImageView image) {
+    public Demanda(String nombreDemandas, String descripcionDemandas, ImageView image) {
         this.nombreDemandas = nombreDemandas;
         this.descripcionDemandas = descripcionDemandas;
         this.image = image;

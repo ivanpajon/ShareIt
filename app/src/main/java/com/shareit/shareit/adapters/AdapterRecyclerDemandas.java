@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shareit.shareit.R;
-import com.shareit.shareit.clases.Demandas;
+import com.shareit.shareit.clases.Demanda;
 
 import java.util.ArrayList;
 
@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecyclerDemandas.ViewHolderDatos> {
 
-    ArrayList<Demandas> lista;
+    ArrayList<Demanda> lista;
 
-    public AdapterRecyclerDemandas(ArrayList<Demandas> lista) {
+    public AdapterRecyclerDemandas(ArrayList<Demanda> lista) {
         this.lista = lista;
     }
 
@@ -52,7 +52,7 @@ public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecycle
             descripcion = itemView.findViewById(R.id.textDescripcion);
         }
 
-        public void asignarDatos(Demandas d) {
+        public void asignarDatos(Demanda d) {
            // imageView.setImageIcon(d.getImage());
             //nombre.setText(d.getNombreDemandas());
             //descripcion.setText(d.getDescripcionDemandas());
