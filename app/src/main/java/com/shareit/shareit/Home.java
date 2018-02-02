@@ -88,7 +88,12 @@ public class Home extends AppCompatActivity
         View header = navigationView.getHeaderView(0);
         ivProfileNavHeader = header.findViewById(R.id.ivProfileNavHeader);
         tvUsername = header.findViewById(R.id.tvUsername);
-        Picasso.with(getApplicationContext()).load(currentUser.getPhotoUrl()).into(ivProfileNavHeader);
+        if (currentUser.getPhotoUrl() == null) {
+            ivProfileNavHeader.setImageResource(R.drawable.persona);
+        }
+        else {
+            Picasso.with(getApplicationContext()).load(currentUser.getPhotoUrl()).into(ivProfileNavHeader);
+        }
         tvUsername.setText(currentUser.getEmail());
 
         checkUser(); // Se comprueba el estado del usuario en Real-Time Database
