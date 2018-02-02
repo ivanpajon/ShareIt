@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/signInEmail"
+        android:id="@+id/btnGoSignInEmail"
         android:layout_width="306dp"
         android:layout_height="66dp"
         android:layout_marginEnd="8dp"
@@ -33,32 +33,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoSignIn" />
 
-    <Button
-        android:id="@+id/signInGoogle"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btnSignInGoogle"
         android:layout_width="306dp"
         android:layout_height="66dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:onClick="accederConGoogle"
         android:text="@string/registro_con_google"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/btnGoSignInEmail" />
 
-    <Button
-        android:id="@+id/signInFacebook"
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/btnSignInFacebook"
         android:layout_width="306dp"
         android:layout_height="66dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:onClick="accederConFacebook"
         android:text="@string/registro_con_facebook"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInGoogle" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignInGoogle" />
 
 </android.support.constraint.ConstraintLayout>

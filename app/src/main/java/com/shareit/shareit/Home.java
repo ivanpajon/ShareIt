@@ -1,5 +1,6 @@
 package com.shareit.shareit;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -15,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.shareit.shareit.fragment.AcercaDeFragment;
 import com.shareit.shareit.fragment.AddFragment;
 import com.shareit.shareit.fragment.AjustesFragment;
@@ -32,6 +35,8 @@ public class Home extends AppCompatActivity
         AddFragment.OnFragmentInteractionListener{
 
     //RecyclerView recyclerdemandas;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,10 @@ public class Home extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Se recupera el usuario con el que se ha iniciado sesion
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
 
         //recyclerdemandas = findViewById(R.id.recyclerDemandas);
         //recyclerdemandas.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
@@ -126,7 +135,13 @@ public class Home extends AppCompatActivity
             fragment = new AcercaDeFragment();
 
         } else if (id == R.id.nav_salir) {
+            if (currentUser != null) {  // Si el usuario esta registrado se cierra sesion y se vuelve al inicio
+                mAuth.signOut();
+
+                Intent i = new Intent(this, SignIn.class);
+                startActivity(i);
                 finish();
+            }
         }
         if (fragmentSeleccionado){
             getSupportFragmentManager().beginTransaction().replace(R.id.content,fragment).commit();
