@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1007258942087",
+    "firebase_url": "https://shareit-6daca.firebaseio.com",
+    "project_id": "shareit-6daca",
+    "storage_bucket": "shareit-6daca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007258942087:android:5f4d7805e41feff6",
+        "android_client_info": {
+          "package_name": "com.shareit.shareit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007258942087-2bvbhtgrtkde5osb8rgv3ubbiqpniqc0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shareit.shareit",
+            "certificate_hash": "d5272beb2a51390422e00e70b46b765bfd811d08"
+          }
+        },
+        {
+          "client_id": "1007258942087-vpoa4tmgacnsg7cdni1fsrnfe4splc0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1T9fbhdKx5GxTe3zqBK1sCpvqCE0w0ks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007258942087-vpoa4tmgacnsg7cdni1fsrnfe4splc0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
