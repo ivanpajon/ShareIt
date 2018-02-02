@@ -77,7 +77,6 @@ public class SignIn extends AppCompatActivity {
         ViewCompat.setImportantForAccessibility(btnSignInEmail.getRootView(), ViewCompat.IMPORTANT_FOR_ACCESSIBILITY_NO);
     }
 
-    // TODO: Descomentar logout de Facebook una vez implementado
     @Override
     public void onStart() {
         super.onStart();
@@ -93,7 +92,7 @@ public class SignIn extends AppCompatActivity {
         // o que se ha cerrado sesion implicitamente, por lo que se limpia el inicio de sesion
         else {
             mGoogleSignInClient.signOut();
-            //mLoginManager.logOut();
+            mLoginManager.logOut();
         }
     }
 
