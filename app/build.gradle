@@ -41,3 +41,4 @@ dependencies {
     // Libreria para la implementacion del inicio de sesion mediante Facebook
     implementation 'com.facebook.android:facebook-login:4.30.0'
 }
+apply plugin: 'com.google.gms.google-services'

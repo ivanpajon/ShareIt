@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context="com.shareit.shareit.SignInEmail" >
+    tools:context="com.shareit.shareit.SignUp">
 
     <ImageView
         android:id="@+id/logoSignInEmail"
@@ -26,19 +25,19 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
+        android:focusedByDefault="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoSignInEmail">
 
         <EditText
-            android:id="@+id/etEmailSignIn"
+            android:id="@+id/etEmailSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:ems="10"
-            android:hint="@string/signinemail_email"
+            android:hint="Email"
             android:inputType="textEmailAddress"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -61,40 +60,54 @@
         app:passwordToggleTint="@color/colorToggleTint">
 
         <EditText
-            android:id="@+id/etPasswordSignIn"
+            android:id="@+id/etPasswordSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:ems="10"
-            android:hint="@string/signinemail_password"
+            android:hint="Password"
             android:inputType="textPassword"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etEmailSignUp" />
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnSignInEmail"
-        android:layout_width="300dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="32dp"
-        android:onClick="signIn"
-        android:text="@string/signin_acceder"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutPassword" />
+    <Switch
+        android:id="@+id/sIsAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:switchPadding="15dp"
+        android:text="Are you president of your community?"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutPassword"
+        tools:checked="false" />
 
     <Button
-        android:id="@+id/btnGoSignUp"
-        style="@style/Widget.AppCompat.Button.Borderless"
+        android:id="@+id/btnSignUp"
         android:layout_width="300dp"
         android:layout_height="45dp"
-        android:onClick="goSignUp"
-        android:text="@string/signin_registrarse"
-        android:textColor="@color/colorPrimary"
-        android:textSize="12sp"
+        android:layout_marginBottom="64dp"
+        android:onClick="signUp"
+        android:text="Sign Up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/pbSignUp"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="87dp"
+        android:layout_height="79dp"
+        android:translationZ="2dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignInEmail" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

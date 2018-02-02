@@ -5,13 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context="com.shareit.shareit.Registrarse">
+    tools:context="com.shareit.shareit.SignIn">
 
     <ImageView
-        android:id="@+id/logo_registro"
+        android:id="@+id/logoSignIn"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginTop="32dp"
+        android:contentDescription="@string/app_name"
         android:scaleType="fitCenter"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,42 +21,44 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/registrofacebook"
+        android:id="@+id/signInEmail"
         android:layout_width="306dp"
         android:layout_height="66dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="AccederConFacebook"
-        android:text="@string/registro_con_facebook"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registrogoogle" />
-
-    <Button
-        android:id="@+id/registrogoogle"
-        android:layout_width="306dp"
-        android:layout_height="66dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:onClick="AccederConGoogle"
-        android:text="@string/registro_con_google"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_registro" />
-
-    <Button
-        android:id="@+id/registroemail"
-        android:layout_width="306dp"
-        android:layout_height="66dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:onClick="AccederConEmail"
+        android:layout_marginTop="32dp"
+        android:onClick="accederConEmail"
         android:text="@string/registro_con_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registrofacebook" />
+        app:layout_constraintTop_toBottomOf="@+id/logoSignIn" />
+
+    <Button
+        android:id="@+id/signInGoogle"
+        android:layout_width="306dp"
+        android:layout_height="66dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:onClick="accederConGoogle"
+        android:text="@string/registro_con_google"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInEmail" />
+
+    <Button
+        android:id="@+id/signInFacebook"
+        android:layout_width="306dp"
+        android:layout_height="66dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:onClick="accederConFacebook"
+        android:text="@string/registro_con_facebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInGoogle" />
 
 </android.support.constraint.ConstraintLayout>
