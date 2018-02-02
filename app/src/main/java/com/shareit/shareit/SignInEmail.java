@@ -16,13 +16,13 @@ public class SignInEmail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in_email);
 
-        etUser = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
+        etUser = findViewById(R.id.etEmailSignIn);
+        etPassword = findViewById(R.id.etPasswordSignIn);
     }
 
-    public void Acceder(View v){
-    Intent i = new Intent(this,HomeActivity.class);
-    startActivity(i);
-    finish();
+    public void signIn(View v){
+        Intent i = new Intent(this, HomeActivity.class);
+        startActivity(i);
+        finish();
     }
 }

@@ -10,4 +10,9 @@
     <color name="divider">#BDBDBD</color>
     <color name="fondo_gris">#fafafa</color>
     <color name="colorLink">#677fba</color>
+    <color name="colorToggleTint">#545454</color>
+
+    <!-- Para que no salga un RenderError relacionado con los TextInputLayout -->
+    <item name="visible" type="id"/>
+    <item name="masked" type="id"/>
 </resources>
