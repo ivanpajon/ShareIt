@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.shareit.shareit.clases.Usuario;
+import com.shareit.shareit.model.Usuario;
 
 public class SignUp extends AppCompatActivity {
     private FirebaseUser currentUser;
@@ -24,7 +24,6 @@ public class SignUp extends AppCompatActivity {
 
     private EditText etEmail, etPassword;
     private Button btnSignUp;
-    private Switch sIsAdmin;
     private ProgressBar pbSignUp;
 
     @Override
@@ -37,7 +36,6 @@ public class SignUp extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmailSignUp);
         etPassword = findViewById(R.id.etPasswordSignUp);
         btnSignUp = findViewById(R.id.btnSignUp);
-        sIsAdmin = findViewById(R.id.sIsAdmin);
         pbSignUp = findViewById(R.id.pbSignUp);
 
         // Importante para evitar problemas de accesibilidad con la contraseña
@@ -61,7 +59,6 @@ public class SignUp extends AppCompatActivity {
     public void signUp (View v) {
         String email = etEmail.getText().toString();
         String password = etPassword.getText().toString();
-        boolean isAdmin = sIsAdmin.isChecked();
 
         newUser = new Usuario();  // Se crea un objeto Usuario
 

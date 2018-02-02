@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shareit.shareit.R;
-import com.shareit.shareit.clases.Demanda;
+import com.shareit.shareit.model.Demanda;
 
 import java.util.ArrayList;
 

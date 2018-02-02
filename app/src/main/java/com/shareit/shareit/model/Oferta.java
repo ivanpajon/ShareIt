@@ -1,8 +1,4 @@
-package com.shareit.shareit.clases;
-
-/**
- * Created by mario on 01/02/2018.
- */
+package com.shareit.shareit.model;
 
 public class Oferta {
 

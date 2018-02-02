@@ -1,10 +1,6 @@
-package com.shareit.shareit.clases;
+package com.shareit.shareit.model;
 
 import android.widget.ImageView;
-
-/**
- * Created by mario on 01/02/2018.
- */
 
 public class Demanda {
 

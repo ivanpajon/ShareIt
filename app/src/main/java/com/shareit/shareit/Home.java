@@ -12,12 +12,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.shareit.shareit.model.Usuario;
 import com.shareit.shareit.fragment.AcercaDeFragment;
 import com.shareit.shareit.fragment.AddFragment;
 import com.shareit.shareit.fragment.AjustesFragment;
@@ -26,6 +35,7 @@ import com.shareit.shareit.fragment.ContentFragment;
 import com.shareit.shareit.fragment.DemandasFragment;
 import com.shareit.shareit.fragment.OfertasFragment;
 import com.shareit.shareit.fragment.PerfilFragment;
+import com.squareup.picasso.Picasso;
 
 public class Home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,PerfilFragment.OnFragmentInteractionListener,
@@ -37,6 +47,8 @@ public class Home extends AppCompatActivity
     //RecyclerView recyclerdemandas;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+    private ImageView ivProfileNavHeader;
+    private TextView tvUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,27 +65,33 @@ public class Home extends AppCompatActivity
         //recyclerdemandas.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+        fab.setOnClickListener((v) -> {
+                Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Fragment f = new AddFragment();
                 getSupportFragmentManager().beginTransaction().replace(R.id.content,f).commit();
-            }
-        });
+            });
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         // Quitamos la tinta por defecto para que las imagenes se vean bien
         navigationView.setItemIconTintList(null);
+
+        // Se cargan los datos del Nav Header
+        View header = navigationView.getHeaderView(0);
+        ivProfileNavHeader = header.findViewById(R.id.ivProfileNavHeader);
+        tvUsername = header.findViewById(R.id.tvUsername);
+        Picasso.with(getApplicationContext()).load(currentUser.getPhotoUrl()).into(ivProfileNavHeader);
+        tvUsername.setText(currentUser.getEmail());
+
+        checkUser(); // Se comprueba el estado del usuario en Real-Time Database
     }
 
     @Override
@@ -135,13 +153,11 @@ public class Home extends AppCompatActivity
             fragment = new AcercaDeFragment();
 
         } else if (id == R.id.nav_salir) {
-            if (currentUser != null) {  // Si el usuario esta registrado se cierra sesion y se vuelve al inicio
-                mAuth.signOut();
+            mAuth.signOut();  // Cerramos sesion
 
-                Intent i = new Intent(this, SignIn.class);
-                startActivity(i);
-                finish();
-            }
+            Intent i = new Intent(this, SignIn.class);
+            startActivity(i);
+            finish();
         }
         if (fragmentSeleccionado){
             getSupportFragmentManager().beginTransaction().replace(R.id.content,fragment).commit();
@@ -155,5 +171,23 @@ public class Home extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    private void checkUser() {
+        // Se comprueba si es la primera vez que inicia sesion y se le asigna un perfil en Real-Time Database
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        reference.child("users").child(currentUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.getValue() == null) {
+                    reference.child("users").child(currentUser.getUid()).setValue(new Usuario(currentUser.getEmail()));
+                    Log.d("USER", "Creando el id " + currentUser.getUid());
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("USER", databaseError.getMessage());
+            }
+        });
     }
 }
