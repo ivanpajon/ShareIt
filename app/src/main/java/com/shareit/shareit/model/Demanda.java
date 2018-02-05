@@ -6,9 +6,9 @@ public class Demanda {
 
     private String nombreDemandas;
     private String descripcionDemandas;
-    private ImageView image;
+    private int image;
 
-    public Demanda(String nombreDemandas, String descripcionDemandas, ImageView image) {
+    public Demanda(String nombreDemandas, String descripcionDemandas, int image) {
         this.nombreDemandas = nombreDemandas;
         this.descripcionDemandas = descripcionDemandas;
         this.image = image;
@@ -30,11 +30,11 @@ public class Demanda {
         this.descripcionDemandas = descripcionDemandas;
     }
 
-    public ImageView getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(ImageView image) {
+    public void setImage(int image) {
         this.image = image;
     }
 }

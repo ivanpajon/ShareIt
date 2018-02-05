@@ -1,4 +1,5 @@
 package com.shareit.shareit.adapters;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,34 +8,34 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.shareit.shareit.R;
-import com.shareit.shareit.model.Demanda;
+import com.shareit.shareit.model.Oferta;
 
 import java.util.ArrayList;
 
 /**
- * Created by mario on 01/02/2018.
+ * Created by mario on 05/02/2018.
  */
 
-public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecyclerDemandas.ViewHolderDatos> {
+public class AdapterRecylerOfertas extends RecyclerView.Adapter<AdapterRecylerOfertas.ViewHolderDatos> {
 
-    ArrayList<Demanda> lista;
+    ArrayList<Oferta> lista;
 
-    public AdapterRecyclerDemandas(ArrayList<Demanda> lista) {
+    public AdapterRecylerOfertas(ArrayList<Oferta> lista) {
         this.lista = lista;
     }
 
     @Override
     public ViewHolderDatos onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, null, false);
         return new ViewHolderDatos(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderDatos holder, int position) {
-       // holder.imageView.setImageURI(lista.get(position).getImage());
-       // holder.nombre.setText(lista.get(position).getNombreDemandas());
-        // holder.descripcion.setText(lista.get(position).getDescripcionDemandas());
+    public void onBindViewHolder(AdapterRecylerOfertas.ViewHolderDatos holder, int position) {
+       // holder.imageView.setImageURI(lista.get(position).getImageOferta());
+       // holder.nombre.setText(lista.get(position).getNombreOferta());
+        //holder.descripcion.setText(lista.get(position).getDescripcionOferta());
         holder.nombre.setText("Nombre");
         holder.descripcion.setText("Descripcion");
         holder.imageView.setImageResource(R.drawable.persona);
@@ -52,7 +53,7 @@ public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecycle
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            imageView= itemView.findViewById(R.id.fotoProducto);
+            imageView = itemView.findViewById(R.id.fotoProducto);
             nombre = itemView.findViewById(R.id.textNombre);
             descripcion = itemView.findViewById(R.id.textDescripcion);
         }

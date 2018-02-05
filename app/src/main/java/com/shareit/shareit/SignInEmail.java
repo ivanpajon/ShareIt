@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 public class SignInEmail extends AppCompatActivity {
     private static final int RC_EMAIL_SIGN_IN = 100;
@@ -45,4 +44,5 @@ public class SignInEmail extends AppCompatActivity {
 
         }
     }
+
 }
