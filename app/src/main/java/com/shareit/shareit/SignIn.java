@@ -93,6 +93,7 @@ public class SignIn extends AppCompatActivity {
         else {
             mGoogleSignInClient.signOut();
             mLoginManager.logOut();
+            mAuth.signOut();
         }
     }
 
