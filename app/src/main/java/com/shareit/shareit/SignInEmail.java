@@ -36,7 +36,6 @@ public class SignInEmail extends AppCompatActivity {
         btnGoSignUp = findViewById(R.id.btnGoSignUp);
     }
 
-    // TODO: Iniciar sesion con Firebase
     public void signIn(View v){
         String email = etUser.getText().toString();
         String password = etPassword.getText().toString();
