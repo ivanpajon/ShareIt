@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -44,7 +45,6 @@ public class Home extends AppCompatActivity
         OfertasFragment.OnFragmentInteractionListener,DemandasFragment.OnFragmentInteractionListener,
         AddFragment.OnFragmentInteractionListener{
 
-    //RecyclerView recyclerdemandas;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private ImageView ivProfileNavHeader;
@@ -61,8 +61,9 @@ public class Home extends AppCompatActivity
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        //recyclerdemandas = findViewById(R.id.recyclerDemandas);
-        //recyclerdemandas.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        //Con estas sentencias cargamos en primera pantalla las ofertas y demandas
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content,new ContentFragment()).commit();
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener((v) -> {
