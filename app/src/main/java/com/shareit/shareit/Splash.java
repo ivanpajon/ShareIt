@@ -39,13 +39,9 @@ public class Splash extends AppCompatActivity implements AnimationListener {
     }
 
     private void close() {
-        /*Bundle b = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.transition.splash_fadein, R.transition.splash_fadeout).toBundle();
-        Intent i = new Intent(getApplicationContext(), Home.class);
-        startActivity(i, b);
-        finish();*/
-
+        Bundle b = ActivityOptionsCompat.makeCustomAnimation(getApplicationContext(), R.anim.alpha_aparicion, R.anim.alpha_desaparicion).toBundle();
         Intent i = new Intent(getApplicationContext(), SignIn.class);
-        startActivity(i);
+        startActivity(i, b);
         finish();
     }
 
