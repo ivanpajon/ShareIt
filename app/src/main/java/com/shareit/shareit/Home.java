@@ -48,6 +48,7 @@ public class Home extends AppCompatActivity
     private FirebaseUser currentUser;
     private ImageView ivProfileNavHeader;
     private TextView tvUsername;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class Home extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content,new ContentFragment()).commit();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener((v) -> {
                 Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -139,22 +140,28 @@ public class Home extends AppCompatActivity
 
         if (id == R.id.nav_perfil) {
             fragmentSeleccionado=true;
+            fab.setVisibility(View.GONE);
             fragment = new PerfilFragment();
+
 
         } else if (id == R.id.nav_comunidades) {
             fragmentSeleccionado=true;
+            fab.setVisibility(View.VISIBLE);
             fragment=new ComunidadesFragment();
 
         } else if (id == R.id.nav_productos) {
             fragmentSeleccionado=true;
+            fab.setVisibility(View.VISIBLE);
             fragment = new ContentFragment();
 
         } else if (id == R.id.nav_ajustes) {
             fragmentSeleccionado=true;
+            fab.setVisibility(View.GONE);
             fragment = new AjustesFragment();
 
         } else if (id == R.id.nav_acerdaDe) {
             fragmentSeleccionado=true;
+            fab.setVisibility(View.GONE);
             fragment = new AcercaDeFragment();
 
         } else if (id == R.id.nav_salir) {
