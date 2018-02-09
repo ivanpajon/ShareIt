@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/ShareIt.iml" filepath="$PROJECT_DIR$/.idea/ShareIt.iml" />
-      <module fileurl="file://C:\Users\X\Desktop\ProyectosEnteros\ShareIt\ShareIt.iml" filepath="C:\Users\X\Desktop\ProyectosEnteros\ShareIt\ShareIt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShareIt.iml" filepath="$PROJECT_DIR$/ShareIt.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\X\Desktop\ProyectosEnteros\ShareIt\app\app.iml" filepath="C:\Users\X\Desktop\ProyectosEnteros\ShareIt\app\app.iml" />
     </modules>
   </component>
 </project>
