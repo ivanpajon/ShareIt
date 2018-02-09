@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <alpha
+        android:fromAlpha="0.0"
+        android:toAlpha="1.0"
+        android:duration="4000"
+        />
+    <!--- Para poder utilizar esta animación antes debemos crear en el layout una ImageView(iv) que marque en todal de layout, -->
+    <!--- a continuacion en la clase java(que estemos utilizando) declaramos un ImageView y lr ponrmos un nombre, a continuacion -->
+    <!--- dentro del onCreate asignamos el id, creamos un objeto de tipo Animation y le asignamos la animacion, a continuacion -->
+    <!--- inicializamos la animacion -->
+
+    <!--- Debe quedar algo tal que así: -->
+
+    <!--- Fuera del onCreate : ImageView imagen -->
+    <!--- Dentro del onCreate: imagen = findViewById(R.id.iv) -->
+    <!--- Dentro del onCreate: Animation alpha1 = AnimationUtils.loadAnimation(this, R.anim.alpha_aparicion) -->
+    <!--- Dentro del onCreate: imagen.starAnimation(alpha1) -->
+</set>
