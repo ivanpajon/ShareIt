@@ -41,25 +41,36 @@ public class DemandasFragment extends Fragment {
 
     }
 
+    // Cargamos todos los componentes de la vista (Recycler,Adaptador,Array,LinerLayout)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_demandas, container, false);
+        //Instanciamos los atributos
         lista = new ArrayList<>();
         recyclerDemandas = view.findViewById(R.id.recyclerDemandas);
+        recyclerDemandas.setHasFixedSize(true);
         llm = new LinearLayoutManager(getContext());
         recyclerDemandas.setLayoutManager(llm);
+
+        //Generamos el adaptador
         adapter = new AdapterRecyclerDemandas(lista);
         recyclerDemandas.setAdapter(adapter);
         llenarLista();
 
         return view;
     }
-
+    //Llenamos el recylcerView
     private void llenarLista() {
         lista.add(new Demanda("nombre","descripcion",R.drawable.persona));
         lista.add(new Demanda("nombre 1","descripcion 1",R.drawable.persona));
         lista.add(new Demanda("nombre 2","descripcion 2",R.drawable.persona));
+        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
+        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
+        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
+        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
+        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
+        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
         lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
         lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
         lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));

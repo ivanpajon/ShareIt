@@ -19,6 +19,8 @@ import java.util.ArrayList;
 public class OfertasFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
+
+    //Creamos los atributos para el RecyclerView
     private RecyclerView recyclerOferta;
     private AdapterRecylerOfertas adapter;
     private LinearLayoutManager llm;
@@ -42,15 +44,20 @@ public class OfertasFragment extends Fragment {
 
     }
 
+    // Cargamos todos los componentes de la vista (Recycler,Adaptador,Array,LinerLayout)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_ofertas, container, false);
 
+        //Instanciamos los atributos
         lista = new ArrayList<>();
         recyclerOferta = view.findViewById(R.id.recyclerOfertas);
+        recyclerOferta.setHasFixedSize(true);
         llm = new LinearLayoutManager(getContext());
         recyclerOferta.setLayoutManager(llm);
+
+        //Generamos el adaptador
         adapter = new AdapterRecylerOfertas(lista);
         recyclerOferta.setAdapter(adapter);
 
@@ -59,10 +66,15 @@ public class OfertasFragment extends Fragment {
         return view;
     }
 
+    //Llenamos el recyclerView
     private void llenarLista() {
         lista.add(new Oferta("nombre","descripcion ",R.drawable.persona));
         lista.add(new Oferta("nombre 1","descripcion 1",R.drawable.persona));
         lista.add(new Oferta("nombre 2","descripcion 2",R.drawable.persona));
+        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
+        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
+        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
+        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
         lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
         lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
         lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));

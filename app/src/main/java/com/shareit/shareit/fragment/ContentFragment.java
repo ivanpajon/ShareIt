@@ -46,6 +46,7 @@ public class ContentFragment extends Fragment {
 
     }
 
+    //Creamos las pestañas de los fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -77,6 +78,7 @@ public class ContentFragment extends Fragment {
         return vista;
     }
 
+    //LLenamos el fragment vacio con los dos que usaremos para deslizar  y le asiganmos los fragment y el titulo de las pestañas
     private void llenarViewPager(ViewPager viewPager) {
         AdaptadorFragment adapter = new AdaptadorFragment(getFragmentManager());
         adapter.addFragment(new OfertasFragment(),"OFERTAS");
@@ -109,6 +111,7 @@ public class ContentFragment extends Fragment {
         mListener = null;
     }
 
+    // Usamos el onDestroyView para destruir las pestañas de ofertas y demandas y que con otros fragment no se vean
     @Override
     public void onDestroyView() {
         super.onDestroyView();

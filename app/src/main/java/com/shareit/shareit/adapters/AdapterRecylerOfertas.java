@@ -36,9 +36,9 @@ public class AdapterRecylerOfertas extends RecyclerView.Adapter<AdapterRecylerOf
        // holder.imageView.setImageURI(lista.get(position).getImageOferta());
        // holder.nombre.setText(lista.get(position).getNombreOferta());
         //holder.descripcion.setText(lista.get(position).getDescripcionOferta());
-        holder.nombre.setText("Nombre");
-        holder.descripcion.setText("Descripcion");
-        holder.imageView.setImageResource(R.drawable.persona);
+        holder.nombre.setText(R.string.comunidades);
+        holder.descripcion.setImageResource(R.drawable.add);
+        holder.imageView.setImageResource(R.drawable.comunidades);
     }
 
     @Override
@@ -49,13 +49,13 @@ public class AdapterRecylerOfertas extends RecyclerView.Adapter<AdapterRecylerOf
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView nombre;
-        TextView descripcion;
+        ImageView descripcion;
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.fotoProducto);
             nombre = itemView.findViewById(R.id.textNombre);
-            descripcion = itemView.findViewById(R.id.textDescripcion);
+            descripcion = itemView.findViewById(R.id.imageMas);
         }
 
         public ImageView getImageView() {
@@ -66,7 +66,7 @@ public class AdapterRecylerOfertas extends RecyclerView.Adapter<AdapterRecylerOf
             return nombre;
         }
 
-        public TextView getDescripcion() {
+        public ImageView getDescripcion() {
             return descripcion;
         }
     }
