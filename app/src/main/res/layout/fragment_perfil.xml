@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,14 +6,194 @@
     android:background="@color/colorPrimaryLight"
     tools:context="com.shareit.shareit.fragment.PerfilFragment">
 
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/civ"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center|top"
+        android:src="@drawable/persona"
+        app:civ_border_color="#EEEEEE"
+        app:civ_border_width="4dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="@color/colorPrimaryDark"
+        app:civ_shadow_radius="15"
+        tools:layout_editor_absoluteY="127dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabFoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl"
+        android:layout_alignEnd="@+id/civ"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        android:src="@drawable/camera" />
+
+    <LinearLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/civ"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="10dp"
+        android:alpha="0.3"
+        android:background="@color/cardview_light_background"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/rlNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageUser"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/user"
+                android:backgroundTint="@color/cardview_dark_background" />
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/rl"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="textPersonName" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/rlPasword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imagePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/password"
+                android:backgroundTint="@color/cardview_dark_background" />
+
+            <EditText
+                android:id="@+id/etPasswordUsuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Contraseña"
+                android:inputType="textPassword" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rlTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/phonepng"
+                android:backgroundTint="@color/cardview_dark_background" />
+
+            <EditText
+                android:id="@+id/etTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Telefono"
+                android:inputType="text|phone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rlUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/user"
+                android:backgroundTint="@color/cardview_dark_background" />
+
+            <EditText
+                android:id="@+id/etUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Nombre de Usuario"
+                android:inputType="textPersonName" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rlEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/emailpng"
+                android:backgroundTint="@color/cardview_dark_background" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="22dp"
         android:clickable="true"
         android:src="@drawable/edit" />
-</FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabCambiar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="22dp"
+        android:layout_marginEnd="22dp"
+        android:clickable="true"
+        android:src="@drawable/add" />
+
+
+</RelativeLayout>
