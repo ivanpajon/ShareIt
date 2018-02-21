@@ -1,53 +1,51 @@
 package com.shareit.shareit.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.shareit.shareit.R;
+import com.squareup.picasso.Picasso;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link PerfilFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link PerfilFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import static android.app.Activity.RESULT_OK;
+import static com.facebook.FacebookSdk.getApplicationContext;
+
 public class PerfilFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private EditText etNombre;
+    private EditText etTelefono;
+    private EditText etPassword;
+    private EditText etEmail;
+    private EditText etUser;
+    private FloatingActionButton fabEdit;
+    private FloatingActionButton fabCamera;
+    private FloatingActionButton fabCambiar;
+    private static final int PICK_IMAGE = 100;
+    Uri imageUri;
+    private ImageView imagen;
 
     public PerfilFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PerfilFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PerfilFragment newInstance(String param1, String param2) {
+    public static PerfilFragment newInstance() {
         PerfilFragment fragment = new PerfilFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -55,17 +53,92 @@ public class PerfilFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        //Inflamos la vista con todos sus componentes
+        View vista = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+
+        etNombre = vista.findViewById(R.id.etNombre);
+        etEmail = vista.findViewById(R.id.etEmail);
+        etPassword = vista.findViewById(R.id.etPasswordUsuario);
+        etTelefono = vista.findViewById(R.id.etTelefono);
+        etUser = vista.findViewById(R.id.etUserName);
+        imagen = vista.findViewById(R.id.civ);
+
+
+        //Iniciamos los edit text en false para no poder escribir
+        etNombre.setEnabled(false);
+        etEmail.setEnabled(false);
+        etPassword.setEnabled(false);
+        etTelefono.setEnabled(false);
+        etUser.setEnabled(false);
+
+        //Cargamos los datos del usuario
+        etEmail.setText(currentUser.getEmail());
+        Picasso.with(getApplicationContext()).load(currentUser.getPhotoUrl()).into(imagen);
+
+
+        //Floating action button encargado de seleccionar la foto
+        fabCamera = vista.findViewById(R.id.fabFoto);
+        fabCamera.setOnClickListener(v -> {
+            //Accedemos a la galeria del telefono
+            Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            startActivityForResult(gallery, PICK_IMAGE);
+                });
+
+        // Floating action button encargado de editar los campos
+        fabEdit = vista.findViewById(R.id.fabEditar);
+        fabCambiar = vista.findViewById(R.id.fabCambiar);
+        fabCambiar.setVisibility(View.GONE);
+
+        fabEdit.setOnClickListener(v ->  {
+            fabEdit.setVisibility(View.GONE);
+            //Activamos los edit text para poder modificar datos
+            etNombre.setEnabled(true);
+            etEmail.setEnabled(true);
+            etPassword.setEnabled(true);
+            etTelefono.setEnabled(true);
+            etUser.setEnabled(true);
+            //Cambiamos el icono del boton
+            fabCambiar.setVisibility(View.VISIBLE);
+        });
+        fabCambiar.setOnClickListener(v -> {
+            fabCambiar.setVisibility(View.GONE);
+            //Guardamos los nuevos datos
+            etNombre.setText(etNombre.getText());
+            etEmail.setText(etEmail.getText());
+            etPassword.setText(etPassword.getText());
+            etTelefono.setText(etTelefono.getText());
+            etUser.setText(etUser.getText());
+            //los volvemos a desactivar
+            etNombre.setEnabled(false);
+            etEmail.setEnabled(false);
+            etPassword.setEnabled(false);
+            etTelefono.setEnabled(false);
+            etUser.setEnabled(false);
+            //Cambiamos los iconos del boton
+            fabEdit.setVisibility(View.VISIBLE);
+
+
+        });
+        return vista;
+    }
+
+    //Metodo para cagar la imagen seleccionada desde la galeria
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+            imageUri = data.getData();
+            imagen.setImageURI(imageUri);
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -92,16 +165,6 @@ public class PerfilFragment extends Fragment {
         mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

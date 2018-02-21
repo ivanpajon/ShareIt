@@ -1,5 +1,4 @@
 package com.shareit.shareit;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -49,6 +48,7 @@ public class Home extends AppCompatActivity
     private FirebaseUser currentUser;
     private ImageView ivProfileNavHeader;
     private TextView tvUsername;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class Home extends AppCompatActivity
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content,new ContentFragment()).commit();
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener((v) -> {
                 Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -120,7 +120,7 @@ public class Home extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        //Boton de buscar
         int id = item.getItemId();
 
         if (id == R.id.search) {
@@ -136,26 +136,37 @@ public class Home extends AppCompatActivity
 
         int id = item.getItemId();
         Fragment fragment = null;
-        boolean fragmentSeleccionado=false;
+        boolean fragmentSeleccionado=false; // Boolean para iniciar el fragment
 
         if (id == R.id.nav_perfil) {
+            //Fragment Perfil
             fragmentSeleccionado=true;
+            fab.setVisibility(View.GONE);
             fragment = new PerfilFragment();
 
+
         } else if (id == R.id.nav_comunidades) {
+            //Frgament comunidades
             fragmentSeleccionado=true;
+            fab.setVisibility(View.VISIBLE);
             fragment=new ComunidadesFragment();
 
         } else if (id == R.id.nav_productos) {
+            //Fragament productos/servicios
             fragmentSeleccionado=true;
+            fab.setVisibility(View.VISIBLE);
             fragment = new ContentFragment();
 
         } else if (id == R.id.nav_ajustes) {
+            //Fragment ajustes
             fragmentSeleccionado=true;
+            fab.setVisibility(View.GONE);
             fragment = new AjustesFragment();
 
         } else if (id == R.id.nav_acerdaDe) {
+            //Fragment Acerca de
             fragmentSeleccionado=true;
+            fab.setVisibility(View.GONE);
             fragment = new AcercaDeFragment();
 
         } else if (id == R.id.nav_salir) {
@@ -166,6 +177,7 @@ public class Home extends AppCompatActivity
             finish();
         }
         if (fragmentSeleccionado){
+            //iniciamos el fragment seleccionado
             getSupportFragmentManager().beginTransaction().replace(R.id.content,fragment).commit();
         }
 
