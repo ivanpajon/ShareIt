@@ -13,8 +13,8 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         card_view:cardBackgroundColor="@color/colorPrimaryLight"
-        card_view:cardCornerRadius="1dp"
-        card_view:cardElevation="4dp"
+        card_view:cardCornerRadius="3dp"
+        card_view:cardElevation="10dp"
         card_view:contentPadding="15dp">
 
         <LinearLayout
@@ -32,6 +32,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="1dp"
                 android:layout_marginTop="20dp"
                 android:layoutDirection="ltr"
                 android:orientation="horizontal">

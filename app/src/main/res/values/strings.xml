@@ -29,4 +29,6 @@
     <!-- Facebook -->
     <string name="facebook_app_id">1761019244193009</string>
     <string name="fb_login_protocol_scheme">fb1761019244193009</string>
+
+    <string name="nombreProducto">PRODUCTO</string>
 </resources>
