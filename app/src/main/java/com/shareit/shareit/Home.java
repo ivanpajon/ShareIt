@@ -26,6 +26,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shareit.shareit.fragment.AddComunidadFragment;
 import com.shareit.shareit.model.Usuario;
 import com.shareit.shareit.fragment.AcercaDeFragment;
 import com.shareit.shareit.fragment.AddFragment;
@@ -66,12 +67,7 @@ public class Home extends AppCompatActivity
         fragmentManager.beginTransaction().replace(R.id.content,new ContentFragment()).commit();
 
         fab = findViewById(R.id.fab);
-        fab.setOnClickListener((v) -> {
-                Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Fragment f = new AddFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.content,f).commit();
-            });
+        fab.setOnClickListener((v) -> fabAction(v));
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -98,6 +94,11 @@ public class Home extends AppCompatActivity
         tvUsername.setText(currentUser.getEmail());
 
         checkUser(); // Se comprueba el estado del usuario en Real-Time Database
+    }
+
+    private void fabAction(View v) {
+        Fragment f = new AddComunidadFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content,f).commit();
     }
 
     @Override
