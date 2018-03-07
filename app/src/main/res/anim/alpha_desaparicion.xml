@@ -3,7 +3,7 @@
     <alpha
         android:fromAlpha="1.0"
         android:toAlpha="0.0"
-        android:duration="1500"
+        android:duration="1000"
         />
     <!--- Para poder utilizar esta animación antes debemos crear en el layout una ImageView(iv) que marque el total de layout, -->
     <!--- a continuacion en la clase java(que estemos utilizando) declaramos un ImageView y lr ponrmos un nombre, a continuacion -->

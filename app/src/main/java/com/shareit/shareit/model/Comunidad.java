@@ -1,7 +1,10 @@
 package com.shareit.shareit.model;
 
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.util.ArrayList;
 
+@IgnoreExtraProperties
 public class Comunidad {
 
     private String idComunidad;
@@ -9,6 +12,8 @@ public class Comunidad {
     private String descripcionComunidad;
     private String fotoComunidad;
     private ArrayList<String> idUsuarios;
+
+    public Comunidad() {}
 
     public Comunidad(String nombreComunidad, String descripcionComunidad, String fotoComunidad) {
 
@@ -58,5 +63,7 @@ public class Comunidad {
         this.idUsuarios = idUsuarios;
     }
 
-
+    public void addUIDUsuario(String uid) {
+        this.idUsuarios.add(uid);
+    }
 }
