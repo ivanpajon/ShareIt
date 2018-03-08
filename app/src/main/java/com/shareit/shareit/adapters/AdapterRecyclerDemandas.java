@@ -32,10 +32,7 @@ public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecycle
 
     @Override
     public void onBindViewHolder(ViewHolderDatos holder, int position) {
-       // holder.imageView.setImageURI(lista.get(position).getImage());
-       // holder.nombre.setText(lista.get(position).getNombreDemandas());
-        // holder.descripcion.setText(lista.get(position).getDescripcionDemandas());
-        holder.nombre.setText(R.string.comunidades);
+        holder.nombre.setText(R.string.productos);
         holder.descripcion.setImageResource(R.drawable.add);
         holder.imageView.setImageResource(R.drawable.comunidades);
     }
