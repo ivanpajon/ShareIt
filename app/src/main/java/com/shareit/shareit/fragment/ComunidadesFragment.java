@@ -6,12 +6,20 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.shareit.shareit.R;
+import com.shareit.shareit.adapters.AdapterRecyclerComunidades;
 import com.shareit.shareit.adapters.AdapterRecyclerDemandas;
+import com.shareit.shareit.model.Comunidad;
 import com.shareit.shareit.model.Demanda;
 
 import java.util.ArrayList;
@@ -22,9 +30,9 @@ public class ComunidadesFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     RecyclerView recyclerDemandas;
-    AdapterRecyclerDemandas adapter;
+    AdapterRecyclerComunidades adapter;
     LinearLayoutManager llm;
-    ArrayList<Demanda> lista;
+    ArrayList<Comunidad> lista;
 
     public ComunidadesFragment() {
         // Required empty public constructor
@@ -40,43 +48,43 @@ public class ComunidadesFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        llenarLista();
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       View view = inflater.inflate(R.layout.fragment_comunidades, container, false);
+        View view = inflater.inflate(R.layout.fragment_comunidades, container, false);
         lista = new ArrayList<>();
-        recyclerDemandas = view.findViewById(R.id.recyclerDemandas);
+        recyclerDemandas = view.findViewById(R.id.recyclerComunidades);
         recyclerDemandas.setHasFixedSize(true);
         llm = new LinearLayoutManager(getContext());
         recyclerDemandas.setLayoutManager(llm);
-
-        //Generamos el adaptador
-        adapter = new AdapterRecyclerDemandas(lista);
-        recyclerDemandas.setAdapter(adapter);
-        llenarLista();
-
 
         return view;
     }
 
     private void llenarLista() {
-        lista.add(new Demanda("nombre","descripcion",R.drawable.persona));
-        lista.add(new Demanda("nombre 1","descripcion 1",R.drawable.persona));
-        lista.add(new Demanda("nombre 2","descripcion 2",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("communities");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                Log.d("COMUNIDAD" ,"Numero de comunidades: "+snapshot.getChildrenCount());
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    Comunidad c = postSnapshot.getValue(Comunidad.class);
+                    Log.d("COMUNIDAD", c.getNombreComunidad());
+                    lista.add(c);
+                }
+                //Generamos el adaptador
+                adapter = new AdapterRecyclerComunidades(lista);
+                recyclerDemandas.setAdapter(adapter);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("COMUNIDAD" , databaseError.getMessage());
+            }
+        });
     }
 
     // TODO: Rename method, update argument and hook method into UI event

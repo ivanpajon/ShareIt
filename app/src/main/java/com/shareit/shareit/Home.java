@@ -101,7 +101,8 @@ public class Home extends AppCompatActivity
         if(add == 0){
             Fragment f = new AddComunidadFragment();
             getSupportFragmentManager().beginTransaction().replace(R.id.content,f).commit();
-        }else {
+        }
+        else {
             Fragment f = new AddFragment();
             fab.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.content, f).commit();
