@@ -50,7 +50,7 @@ public class Home extends AppCompatActivity
     private ImageView ivProfileNavHeader;
     private TextView tvUsername;
     private FloatingActionButton fab;
-    int add =0;
+    int add =1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
