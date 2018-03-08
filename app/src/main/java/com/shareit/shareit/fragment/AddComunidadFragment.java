@@ -53,6 +53,10 @@ public class AddComunidadFragment extends Fragment {
             c.addUIDUsuario(currentUser.getUid());
 
             mDatabase.child("communities").child(key).setValue(c);
+
+            // Volvemos al fragment de comunidades
+            Fragment f = new ComunidadesFragment();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.content, f).commit();
         }
     }
 
