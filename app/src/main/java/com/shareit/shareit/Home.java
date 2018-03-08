@@ -50,7 +50,7 @@ public class Home extends AppCompatActivity
     private ImageView ivProfileNavHeader;
     private TextView tvUsername;
     private FloatingActionButton fab;
-    int add =1;
+    private int add = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,12 +100,15 @@ public class Home extends AppCompatActivity
     private void fabAction(View v) {
         if(add == 0){
             Fragment f = new AddComunidadFragment();
+            fab.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.content,f).commit();
+            add++;
         }
         else {
             Fragment f = new AddFragment();
             fab.setVisibility(View.GONE);
             getSupportFragmentManager().beginTransaction().replace(R.id.content, f).commit();
+            add--;
         }
 
     }

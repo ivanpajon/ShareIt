@@ -1,7 +1,8 @@
 package com.shareit.shareit.model;
 
-import android.widget.ImageView;
+import com.google.firebase.database.IgnoreExtraProperties;
 
+@IgnoreExtraProperties
 public class Oferta {
 
     private String nombreOferta;

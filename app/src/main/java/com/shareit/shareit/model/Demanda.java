@@ -1,33 +1,36 @@
 package com.shareit.shareit.model;
 
-import android.widget.ImageView;
+import com.google.firebase.database.IgnoreExtraProperties;
 
+@IgnoreExtraProperties
 public class Demanda {
 
-    private String nombreDemandas;
-    private String descripcionDemandas;
+    private String nombreDemanda;
+    private String descripcionDemanda;
     private int image;
 
-    public Demanda(String nombreDemandas, String descripcionDemandas, int image) {
-        this.nombreDemandas = nombreDemandas;
-        this.descripcionDemandas = descripcionDemandas;
+    public Demanda() {}
+
+    public Demanda(String nombreDemanda, String descripcionDemanda, int image) {
+        this.nombreDemanda = nombreDemanda;
+        this.descripcionDemanda = descripcionDemanda;
         this.image = image;
     }
 
-    public String getNombreDemandas() {
-        return nombreDemandas;
+    public String getNombreDemanda() {
+        return nombreDemanda;
     }
 
-    public void setNombreDemandas(String nombreDemandas) {
-        this.nombreDemandas = nombreDemandas;
+    public void setNombreDemanda(String nombreDemanda) {
+        this.nombreDemanda = nombreDemanda;
     }
 
-    public String getDescripcionDemandas() {
-        return descripcionDemandas;
+    public String getDescripcionDemanda() {
+        return descripcionDemanda;
     }
 
-    public void setDescripcionDemandas(String descripcionDemandas) {
-        this.descripcionDemandas = descripcionDemandas;
+    public void setDescripcionDemanda(String descripcionDemanda) {
+        this.descripcionDemanda = descripcionDemanda;
     }
 
     public int getImage() {
