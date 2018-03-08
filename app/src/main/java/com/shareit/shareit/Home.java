@@ -50,6 +50,7 @@ public class Home extends AppCompatActivity
     private ImageView ivProfileNavHeader;
     private TextView tvUsername;
     private FloatingActionButton fab;
+    int add =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +98,15 @@ public class Home extends AppCompatActivity
     }
 
     private void fabAction(View v) {
-        Fragment f = new AddComunidadFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.content,f).commit();
+        if(add == 0){
+            Fragment f = new AddComunidadFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content,f).commit();
+        }else {
+            Fragment f = new AddFragment();
+            fab.setVisibility(View.GONE);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content, f).commit();
+        }
+
     }
 
     @Override
@@ -137,6 +145,7 @@ public class Home extends AppCompatActivity
 
         int id = item.getItemId();
         Fragment fragment = null;
+
         boolean fragmentSeleccionado=false; // Boolean para iniciar el fragment
 
         if (id == R.id.nav_perfil) {
@@ -148,6 +157,7 @@ public class Home extends AppCompatActivity
 
         } else if (id == R.id.nav_comunidades) {
             //Frgament comunidades
+            add =0;
             fragmentSeleccionado=true;
             fab.setVisibility(View.VISIBLE);
             fragment=new ComunidadesFragment();
@@ -155,6 +165,7 @@ public class Home extends AppCompatActivity
         } else if (id == R.id.nav_productos) {
             //Fragament productos/servicios
             fragmentSeleccionado=true;
+            add=1;
             fab.setVisibility(View.VISIBLE);
             fragment = new ContentFragment();
 

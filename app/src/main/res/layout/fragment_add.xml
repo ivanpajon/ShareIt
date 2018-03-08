@@ -3,31 +3,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
     android:padding="16dp"
     tools:context="com.shareit.shareit.fragment.AddFragment">
 
-<TextView
-    android:id="@+id/tvProdcuto"
-    android:layout_marginTop="20dp"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/nombreProducto"
-    android:textSize="16sp"/>
+    <com.mikhaellopez.circularimageview.CircularImageView
 
-    <EditText
-        android:id="@+id/etNombreProducto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tvProdcuto"
-        android:layout_marginTop="20dp"/>
+        android:id="@+id/imageProducto"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/productos"
+        app:civ_border_color="#EEEEEE"
+        app:civ_border_width="4dp"
+        app:civ_shadow="true"
+        app:civ_shadow_color="@color/colorPrimaryDark"
+        app:civ_shadow_radius="15" />
 
-    <ImageView
-        android:id="@+id/imageView"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabFotoProducto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etNombreProducto"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp" />
+        android:layout_above="@+id/llVertical"
+        android:layout_alignEnd="@+id/imageProducto"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        android:src="@drawable/camera" />
+
+    <LinearLayout
+        android:id="@+id/llVertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageProducto"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etNombreProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageProducto"
+            android:layout_marginTop="30dp"
+            android:hint="Nombre Producto" />
+
+
+        <EditText
+            android:id="@+id/multiText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/etNombreProducto"
+            android:layout_centerHorizontal="true"
+            android:hint="DESCRIPCION "
+            android:inputType="textMultiLine" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/llVertical"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbDemanda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OFERTA" />
+
+            <RadioButton
+                android:id="@+id/rbOferta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="DEMANDA" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabAgregarProducto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="15dp"
+        android:clickable="true"
+        android:src="@drawable/add" />
 
 
 </RelativeLayout>
