@@ -6,10 +6,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.shareit.shareit.R;
 import com.shareit.shareit.adapters.AdapterRecylerOfertas;
 import com.shareit.shareit.model.Oferta;
@@ -57,10 +63,6 @@ public class OfertasFragment extends Fragment {
         llm = new LinearLayoutManager(getContext());
         recyclerOferta.setLayoutManager(llm);
 
-        //Generamos el adaptador
-        adapter = new AdapterRecylerOfertas(lista);
-        recyclerOferta.setAdapter(adapter);
-
         llenarLista();
 
         return view;
@@ -68,24 +70,25 @@ public class OfertasFragment extends Fragment {
 
     //Llenamos el recyclerView
     private void llenarLista() {
-        lista.add(new Oferta("nombre","descripcion ",R.drawable.persona));
-        lista.add(new Oferta("nombre 1","descripcion 1",R.drawable.persona));
-        lista.add(new Oferta("nombre 2","descripcion 2",R.drawable.persona));
-        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Oferta("nombre 3","descripcion 3",R.drawable.persona));
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("offers");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                Log.d("OFERTA" ,"Numero de ofertas: "+snapshot.getChildrenCount());
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    Oferta o = postSnapshot.getValue(Oferta.class);
+                    Log.d("OFERTA", o.getNombreOferta());
+                    lista.add(o);
+                }
+                //Generamos el adaptador
+                adapter = new AdapterRecylerOfertas(lista);
+                recyclerOferta.setAdapter(adapter);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("OFERTA" , databaseError.getMessage());
+            }
+        });
     }
 
     @Override

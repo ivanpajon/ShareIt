@@ -5,10 +5,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.shareit.shareit.R;
 import com.shareit.shareit.adapters.AdapterRecyclerDemandas;
 import com.shareit.shareit.model.Demanda;
@@ -53,35 +59,31 @@ public class DemandasFragment extends Fragment {
         llm = new LinearLayoutManager(getContext());
         recyclerDemandas.setLayoutManager(llm);
 
-        //Generamos el adaptador
-        adapter = new AdapterRecyclerDemandas(lista);
-        recyclerDemandas.setAdapter(adapter);
         llenarLista();
 
         return view;
     }
     //Llenamos el recylcerView
     private void llenarLista() {
-        lista.add(new Demanda("nombre","descripcion",R.drawable.persona));
-        lista.add(new Demanda("nombre 1","descripcion 1",R.drawable.persona));
-        lista.add(new Demanda("nombre 2","descripcion 2",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-        lista.add(new Demanda("nombre 3","descripcion 3",R.drawable.persona));
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("demands");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                Log.d("DEMANDA" ,"Numero de demandas: "+snapshot.getChildrenCount());
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    Demanda d = postSnapshot.getValue(Demanda.class);
+                    Log.d("DEMANDA", d.getNombreDemanda());
+                    lista.add(d);
+                }
+                //Generamos el adaptador
+                adapter = new AdapterRecyclerDemandas(lista);
+                recyclerDemandas.setAdapter(adapter);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("DEMANDA" , databaseError.getMessage());
+            }
+        });
     }
 
     @Override

@@ -36,64 +36,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageProducto"
-        android:layout_marginLeft="60dp"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical">
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <EditText
             android:id="@+id/etNombreProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageProducto"
-            android:layout_marginTop="30dp"
-            android:hint="Nombre Producto" />
+            android:hint="Nombre" />
 
 
         <EditText
-            android:id="@+id/multiText"
+            android:id="@+id/etDescripcionProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/etNombreProducto"
             android:layout_centerHorizontal="true"
-            android:hint="DESCRIPCION "
+            android:hint="Descripcion"
             android:inputType="textMultiLine" />
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/llVertical"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+        <RadioGroup
+            android:id="@+id/rgDemanda"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:checkedButton="@+id/rbOferta">
 
             <RadioButton
-                android:id="@+id/rbDemanda"
-                android:layout_width="wrap_content"
+                android:id="@+id/rbOferta"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="OFERTA" />
 
             <RadioButton
-                android:id="@+id/rbOferta"
-                android:layout_width="wrap_content"
+                android:id="@+id/rbDemanda"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
                 android:text="DEMANDA" />
+        </RadioGroup>
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnAddDemanda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="addDemanda"
+            android:text="Añadir" />
+
     </LinearLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabAgregarProducto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="15dp"
-        android:layout_marginEnd="15dp"
-        android:clickable="true"
-        android:src="@drawable/add" />
 
 
 </RelativeLayout>

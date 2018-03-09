@@ -1,4 +1,5 @@
 package com.shareit.shareit.adapters;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +12,6 @@ import com.shareit.shareit.model.Demanda;
 
 import java.util.ArrayList;
 
-/**
- * Created by mario on 01/02/2018.
- */
-
 public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecyclerDemandas.ViewHolderDatos> {
 
     ArrayList<Demanda> lista;
@@ -25,15 +22,13 @@ public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecycle
 
     @Override
     public ViewHolderDatos onCreateViewHolder(ViewGroup parent, int viewType) {
-
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
         return new ViewHolderDatos(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolderDatos holder, int position) {
-        holder.nombre.setText(R.string.productos);
-        holder.descripcion.setImageResource(R.drawable.add);
+        holder.nombre.setText(lista.get(position).getNombreDemanda());
         holder.imageView.setImageResource(R.drawable.comunidades);
     }
 
@@ -45,13 +40,11 @@ public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecycle
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView nombre;
-        ImageView descripcion;
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
             imageView= itemView.findViewById(R.id.fotoProducto);
             nombre = itemView.findViewById(R.id.textNombre);
-            descripcion = itemView.findViewById(R.id.imageMas);
         }
 
         public ImageView getImageView() {
@@ -60,10 +53,6 @@ public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecycle
 
         public TextView getNombre() {
             return nombre;
-        }
-
-        public ImageView getDescripcion() {
-            return descripcion;
         }
     }
 }

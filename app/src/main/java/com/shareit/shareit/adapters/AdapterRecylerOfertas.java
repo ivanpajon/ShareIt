@@ -12,10 +12,6 @@ import com.shareit.shareit.model.Oferta;
 
 import java.util.ArrayList;
 
-/**
- * Created by mario on 05/02/2018.
- */
-
 public class AdapterRecylerOfertas extends RecyclerView.Adapter<AdapterRecylerOfertas.ViewHolderDatos> {
 
     ArrayList<Oferta> lista;
@@ -33,11 +29,7 @@ public class AdapterRecylerOfertas extends RecyclerView.Adapter<AdapterRecylerOf
 
     @Override
     public void onBindViewHolder(AdapterRecylerOfertas.ViewHolderDatos holder, int position) {
-       // holder.imageView.setImageURI(lista.get(position).getImageOferta());
-       // holder.nombre.setText(lista.get(position).getNombreOferta());
-        //holder.descripcion.setText(lista.get(position).getDescripcionOferta());
-        holder.nombre.setText(R.string.comunidades);
-        holder.descripcion.setImageResource(R.drawable.add);
+        holder.nombre.setText(lista.get(position).getNombreOferta());
         holder.imageView.setImageResource(R.drawable.comunidades);
     }
 
@@ -49,13 +41,11 @@ public class AdapterRecylerOfertas extends RecyclerView.Adapter<AdapterRecylerOf
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView nombre;
-        ImageView descripcion;
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.fotoProducto);
             nombre = itemView.findViewById(R.id.textNombre);
-            descripcion = itemView.findViewById(R.id.imageMas);
         }
 
         public ImageView getImageView() {
@@ -64,10 +54,6 @@ public class AdapterRecylerOfertas extends RecyclerView.Adapter<AdapterRecylerOf
 
         public TextView getNombre() {
             return nombre;
-        }
-
-        public ImageView getDescripcion() {
-            return descripcion;
         }
     }
 }
