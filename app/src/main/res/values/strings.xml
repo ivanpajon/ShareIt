@@ -24,7 +24,7 @@
     <string name="salir">Cerrar sesión</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">QUÉ ES SHAREIT</string>
 
     <!-- Facebook -->
     <string name="facebook_app_id">1761019244193009</string>
@@ -32,4 +32,10 @@
 
     <string name="nombreProducto">PRODUCTO</string>
     <string name="ofertas">Oferta</string>
+    <string name="texto_acercade">Shareit , nace como una solución al problema que no es encontramos
+        en la vida diaria como por ejemplo cuando necesitamos un taladro y no tenemos, alguien que nos
+        riegue las plantas ya sea por falta de tiempo o no disponer de el. Shareit te ofrece una solución
+        sencilla, una aplicación dirigida hacia las comunidades de vecinos en las cuales podrás hacer una
+        propuesta solicitando la ayuda que necesites al igual que podrás ofrecerte para ayudar a otros vecinos. </string>
+
 </resources>
