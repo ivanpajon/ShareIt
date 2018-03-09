@@ -17,10 +17,12 @@
         android:textColor="@android:color/white"/>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/t"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/texto_acercade"
+        android:layout_height="251dp"
         android:layout_marginTop="30dp"
-        android:textColor="@android:color/white"/>
+        android:text="@string/texto_acercade"
+        android:textColor="@android:color/white"
+        />
+</LinearLayout>
 
