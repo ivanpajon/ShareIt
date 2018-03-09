@@ -20,10 +20,10 @@
     <TextView
         android:id="@+id/t"
         android:layout_width="match_parent"
-        android:layout_height="251dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/texto_acercade"
         android:textColor="@android:color/white"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
 </LinearLayout>
 
