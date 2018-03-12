@@ -1,4 +1,4 @@
-package com.shareit.shareit.adapters;
+package com.shareit.shareitdam.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.shareit.shareit.R;
-import com.shareit.shareit.model.Oferta;
+import com.shareit.shareitdam.R;
+import com.shareit.shareitdam.model.Oferta;
 
 import java.util.ArrayList;
 

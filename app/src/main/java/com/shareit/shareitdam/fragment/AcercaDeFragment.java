@@ -1,4 +1,4 @@
-package com.shareit.shareit.fragment;
+package com.shareit.shareitdam.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shareit.shareit.R;
+import com.shareit.shareitdam.R;
 
 /**
  * A simple {@link Fragment} subclass.

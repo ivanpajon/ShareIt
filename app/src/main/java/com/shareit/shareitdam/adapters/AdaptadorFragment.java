@@ -1,4 +1,4 @@
-package com.shareit.shareit.adapters;
+package com.shareit.shareitdam.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

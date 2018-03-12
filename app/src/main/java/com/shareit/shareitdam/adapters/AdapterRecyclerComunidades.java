@@ -1,4 +1,4 @@
-package com.shareit.shareit.adapters;
+package com.shareit.shareitdam.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,28 +7,27 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.shareit.shareit.R;
-import com.shareit.shareit.model.Demanda;
+import com.shareit.shareitdam.R;
+import com.shareit.shareitdam.model.Comunidad;
 
 import java.util.ArrayList;
 
-public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecyclerDemandas.ViewHolderDatos> {
+public class AdapterRecyclerComunidades extends RecyclerView.Adapter<AdapterRecyclerComunidades.ViewHolderDatos>  {
+    ArrayList<Comunidad> lista;
 
-    ArrayList<Demanda> lista;
-
-    public AdapterRecyclerDemandas(ArrayList<Demanda> lista) {
+    public AdapterRecyclerComunidades(ArrayList<Comunidad> lista) {
         this.lista = lista;
     }
 
     @Override
-    public ViewHolderDatos onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
-        return new ViewHolderDatos(view);
+    public AdapterRecyclerComunidades.ViewHolderDatos onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, null, false);
+        return new AdapterRecyclerComunidades.ViewHolderDatos(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderDatos holder, int position) {
-        holder.nombre.setText(lista.get(position).getNombreDemanda());
+    public void onBindViewHolder(AdapterRecyclerComunidades.ViewHolderDatos holder, int position) {
+        holder.nombre.setText(lista.get(position).getNombreComunidad());
         holder.imageView.setImageResource(R.drawable.comunidades);
     }
 
@@ -43,7 +42,7 @@ public class AdapterRecyclerDemandas extends RecyclerView.Adapter<AdapterRecycle
 
         public ViewHolderDatos(View itemView) {
             super(itemView);
-            imageView= itemView.findViewById(R.id.fotoProducto);
+            imageView = itemView.findViewById(R.id.fotoProducto);
             nombre = itemView.findViewById(R.id.textNombre);
         }
 

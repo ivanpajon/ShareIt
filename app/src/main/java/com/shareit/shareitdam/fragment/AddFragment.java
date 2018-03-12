@@ -1,4 +1,4 @@
-package com.shareit.shareit.fragment;
+package com.shareit.shareitdam.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,15 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.shareit.shareit.R;
-import com.shareit.shareit.model.Demanda;
-import com.shareit.shareit.model.Oferta;
+import com.shareit.shareitdam.R;
+import com.shareit.shareitdam.model.Demanda;
+import com.shareit.shareitdam.model.Oferta;
 
 import static android.app.Activity.RESULT_OK;
 

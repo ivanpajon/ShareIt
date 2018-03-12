@@ -1,4 +1,4 @@
-package com.shareit.shareit.fragment;
+package com.shareit.shareitdam.fragment;
 
 
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.shareit.shareit.R;
-import com.shareit.shareit.model.Comunidad;
+import com.shareit.shareitdam.R;
+import com.shareit.shareitdam.model.Comunidad;
 
 
 public class AddComunidadFragment extends Fragment {

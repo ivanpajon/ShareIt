@@ -1,4 +1,4 @@
-package com.shareit.shareit.fragment;
+package com.shareit.shareitdam.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -16,9 +16,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.shareit.shareit.R;
-import com.shareit.shareit.adapters.AdapterRecylerOfertas;
-import com.shareit.shareit.model.Oferta;
+import com.shareit.shareitdam.R;
+import com.shareit.shareitdam.adapters.AdapterRecylerOfertas;
+import com.shareit.shareitdam.model.Oferta;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.shareit.shareit.model;
+package com.shareit.shareitdam.model;
 
 import com.google.firebase.database.IgnoreExtraProperties;
 

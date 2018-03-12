@@ -1,4 +1,4 @@
-package com.shareit.shareit;
+package com.shareit.shareitdam;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,14 +8,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.shareit.shareit.model.Usuario;
+import com.shareit.shareitdam.model.Usuario;
 
 public class SignUp extends AppCompatActivity {
     private FirebaseUser currentUser;

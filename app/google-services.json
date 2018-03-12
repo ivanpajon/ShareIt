@@ -15,11 +15,79 @@
       },
       "oauth_client": [
         {
+          "client_id": "1007258942087-0855qu3lb9coiscs0uch11t08r53avev.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shareit.shareit",
+            "certificate_hash": "cbf7734ea0aecd5cda8963a9f8bb9be271c72b0d"
+          }
+        },
+        {
+          "client_id": "1007258942087-hmhoc015n0g84n1qasqqut69oo4qmgem.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shareit.shareit",
+            "certificate_hash": "c6677859616d5d12242f28bed46e1d073c2aa2d5"
+          }
+        },
+        {
+          "client_id": "1007258942087-bbr3v4nipjmsmfssds3kg5570s1r3db0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shareit.shareit",
+            "certificate_hash": "606fce6d86554fcea633913d811572bdfe7c78af"
+          }
+        },
+        {
           "client_id": "1007258942087-2bvbhtgrtkde5osb8rgv3ubbiqpniqc0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.shareit.shareit",
             "certificate_hash": "d5272beb2a51390422e00e70b46b765bfd811d08"
+          }
+        },
+        {
+          "client_id": "1007258942087-vpoa4tmgacnsg7cdni1fsrnfe4splc0a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1T9fbhdKx5GxTe3zqBK1sCpvqCE0w0ks"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007258942087-vpoa4tmgacnsg7cdni1fsrnfe4splc0a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007258942087:android:5f368ddd9e6e7185",
+        "android_client_info": {
+          "package_name": "com.shareit.shareitdam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007258942087-9i106vvr2i7gfle7kgea2vt6vfri72tv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shareit.shareitdam",
+            "certificate_hash": "cbf7734ea0aecd5cda8963a9f8bb9be271c72b0d"
           }
         },
         {

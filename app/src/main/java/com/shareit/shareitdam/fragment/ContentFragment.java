@@ -1,11 +1,10 @@
-package com.shareit.shareit.fragment;
+package com.shareit.shareitdam.fragment;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -13,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.shareit.shareit.R;
-import com.shareit.shareit.adapters.AdaptadorFragment;
+import com.shareit.shareitdam.R;
+import com.shareit.shareitdam.adapters.AdaptadorFragment;
 
 
 public class ContentFragment extends Fragment {

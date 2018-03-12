@@ -1,4 +1,4 @@
-package com.shareit.shareit;
+package com.shareit.shareitdam;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

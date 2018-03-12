@@ -1,4 +1,4 @@
-package com.shareit.shareit.fragment;
+package com.shareit.shareitdam.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,7 @@ import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.shareit.shareit.R;
+import com.shareit.shareitdam.R;
 import com.squareup.picasso.Picasso;
 
 import static android.app.Activity.RESULT_OK;

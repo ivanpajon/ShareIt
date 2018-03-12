@@ -1,10 +1,9 @@
-package com.shareit.shareit;
+package com.shareit.shareitdam;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -26,16 +25,16 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.shareit.shareit.fragment.AddComunidadFragment;
-import com.shareit.shareit.model.Usuario;
-import com.shareit.shareit.fragment.AcercaDeFragment;
-import com.shareit.shareit.fragment.AddFragment;
-import com.shareit.shareit.fragment.AjustesFragment;
-import com.shareit.shareit.fragment.ComunidadesFragment;
-import com.shareit.shareit.fragment.ContentFragment;
-import com.shareit.shareit.fragment.DemandasFragment;
-import com.shareit.shareit.fragment.OfertasFragment;
-import com.shareit.shareit.fragment.PerfilFragment;
+import com.shareit.shareitdam.fragment.AddComunidadFragment;
+import com.shareit.shareitdam.model.Usuario;
+import com.shareit.shareitdam.fragment.AcercaDeFragment;
+import com.shareit.shareitdam.fragment.AddFragment;
+import com.shareit.shareitdam.fragment.AjustesFragment;
+import com.shareit.shareitdam.fragment.ComunidadesFragment;
+import com.shareit.shareitdam.fragment.ContentFragment;
+import com.shareit.shareitdam.fragment.DemandasFragment;
+import com.shareit.shareitdam.fragment.OfertasFragment;
+import com.shareit.shareitdam.fragment.PerfilFragment;
 import com.squareup.picasso.Picasso;
 
 public class Home extends AppCompatActivity
